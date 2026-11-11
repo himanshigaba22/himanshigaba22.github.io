@@ -1,0 +1,403 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Himanshi Gaba | IT Graduate</title>
+<meta name="description" content="Himanshi Gaba, Bachelor of IT graduate from Deakin University. Cloud, IoT, IT support, open source and UX research. Based in Melbourne, available now.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700&family=Manrope:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink: #14213d;
+    --body: #3d4a5c;
+    --muted: #66758a;
+    --bg: #f4f6f5;
+    --surface: #ffffff;
+    --line: #d6dde3;
+    --accent: #0e7c86;
+    --accent-ink: #0a5d65;
+    --accent-tint: #dff0ef;
+    --radius-s: 6px;
+    --radius-l: 14px;
+  }
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--body);
+    font: 400 1.0625rem/1.65 "Manrope", system-ui, sans-serif;
+    -webkit-font-smoothing: antialiased;
+  }
+  h1, h2, h3 {
+    font-family: "Bricolage Grotesque", "Manrope", sans-serif;
+    color: var(--ink);
+    line-height: 1.15;
+    margin: 0;
+  }
+  a { color: var(--accent-ink); text-underline-offset: 3px; }
+  a:hover { color: var(--ink); }
+  :focus-visible { outline: 3px solid var(--accent); outline-offset: 3px; border-radius: 4px; }
+  p { margin: 0 0 1rem; max-width: 66ch; }
+  ul { margin: 0; padding: 0; }
+
+  .wrap { max-width: 980px; margin: 0 auto; padding: 0 24px; }
+
+  /* Header */
+  .site-header {
+    position: sticky; top: 0; z-index: 10;
+    background: rgba(244, 246, 245, 0.92);
+    backdrop-filter: blur(8px);
+    border-bottom: 1px solid var(--line);
+  }
+  .site-header .wrap {
+    display: flex; align-items: center; justify-content: space-between;
+    min-height: 60px; gap: 16px;
+  }
+  .brand { font-family: "Bricolage Grotesque", sans-serif; font-weight: 700; color: var(--ink); text-decoration: none; font-size: 1.1rem; }
+  .nav { display: flex; gap: 22px; list-style: none; }
+  .nav a { color: var(--body); text-decoration: none; font-weight: 500; font-size: 0.95rem; }
+  .nav a:hover { color: var(--accent-ink); }
+
+  /* Hero */
+  .hero { padding: 88px 0 56px; }
+  .hero h1 { font-size: clamp(2.6rem, 7vw, 4.6rem); font-weight: 700; letter-spacing: -0.02em; }
+  .hero .role { font-size: clamp(1.15rem, 2.4vw, 1.4rem); color: var(--ink); margin: 18px 0 20px; font-weight: 500; max-width: 40ch; }
+  .hero .status {
+    display: inline-flex; align-items: center; gap: 10px;
+    background: var(--accent-tint); color: var(--accent-ink);
+    padding: 6px 14px; border-radius: 999px; font-weight: 600; font-size: 0.92rem;
+    margin-bottom: 28px;
+  }
+  .hero .status::before { content: ""; width: 8px; height: 8px; border-radius: 50%; background: var(--accent); }
+  .actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 28px; }
+  .btn {
+    display: inline-block; padding: 12px 20px; border-radius: var(--radius-s);
+    font-weight: 600; text-decoration: none; font-size: 0.98rem;
+    border: 1.5px solid var(--ink);
+  }
+  .btn-primary { background: var(--ink); color: #fff; }
+  .btn-primary:hover { background: var(--accent-ink); border-color: var(--accent-ink); color: #fff; }
+  .btn-plain { color: var(--ink); background: transparent; }
+  .btn-plain:hover { background: var(--surface); color: var(--ink); }
+
+  /* Sections */
+  section { padding: 64px 0; border-top: 1px solid var(--line); }
+  .section-head { margin-bottom: 32px; }
+  .section-head h2 { font-size: clamp(1.7rem, 3.6vw, 2.2rem); font-weight: 700; }
+  .section-head p { margin-top: 10px; color: var(--muted); }
+
+  /* Featured project */
+  .feature {
+    background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius-l);
+    padding: clamp(22px, 4vw, 40px);
+  }
+  .feature h3 { font-size: 1.55rem; margin-bottom: 10px; }
+  .pipeline {
+    list-style: none; display: grid; grid-template-columns: repeat(5, 1fr);
+    gap: 0; margin: 30px 0 32px; counter-reset: none;
+  }
+  .pipeline li { position: relative; text-align: center; padding: 0 6px; }
+  .pipeline .node {
+    display: block; background: var(--accent-tint); color: var(--ink);
+    border: 1.5px solid var(--accent); border-radius: var(--radius-s);
+    padding: 12px 6px; font-weight: 600; font-size: 0.95rem;
+    position: relative; z-index: 1;
+  }
+  .pipeline .what { display: block; font-size: 0.82rem; color: var(--muted); margin-top: 8px; line-height: 1.4; }
+  .pipeline li:not(:last-child)::after {
+    content: ""; position: absolute; top: 23px; left: calc(50% + 10px); width: calc(100% - 20px);
+    height: 2px; background: var(--accent);
+  }
+  .pipeline li:not(:last-child)::before {
+    content: ""; position: absolute; top: 19px; left: calc(50% + 10px);
+    width: 10px; height: 10px; border-radius: 50%; background: var(--accent-ink);
+    z-index: 2; animation: flow 2.4s linear infinite;
+  }
+  .pipeline li:nth-child(2)::before { animation-delay: 0.48s; }
+  .pipeline li:nth-child(3)::before { animation-delay: 0.96s; }
+  .pipeline li:nth-child(4)::before { animation-delay: 1.44s; }
+  @keyframes flow {
+    0% { transform: translateX(0); opacity: 0; }
+    10% { opacity: 1; }
+    90% { opacity: 1; }
+    100% { transform: translateX(calc(var(--hop, 140px))); opacity: 0; }
+  }
+  .results { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin: 0 0 28px; list-style: none; }
+  .results li { border-left: 3px solid var(--accent); padding: 4px 0 4px 14px; }
+  .results strong { display: block; font-family: "Bricolage Grotesque", sans-serif; font-size: 1.9rem; color: var(--ink); line-height: 1.1; }
+  .results span { font-size: 0.92rem; color: var(--muted); }
+  .points { list-style: none; display: grid; gap: 10px; margin-bottom: 24px; }
+  .points li { padding-left: 22px; position: relative; }
+  .points li::before { content: ""; position: absolute; left: 0; top: 0.68em; width: 9px; height: 2px; background: var(--accent); }
+
+  .stack { display: flex; flex-wrap: wrap; gap: 8px; list-style: none; margin: 16px 0 0; }
+  .stack li { font-size: 0.82rem; font-weight: 600; color: var(--ink); background: var(--bg); border: 1px solid var(--line); padding: 4px 10px; border-radius: 999px; }
+
+  /* Project list */
+  .projects { list-style: none; margin-top: 40px; }
+  .project {
+    display: grid; grid-template-columns: 1fr 2fr; gap: 28px;
+    padding: 30px 0; border-top: 1px solid var(--line);
+  }
+  .project:last-child { border-bottom: 1px solid var(--line); }
+  .project h3 { font-size: 1.3rem; }
+  .project .where { color: var(--muted); font-size: 0.92rem; margin-top: 6px; }
+  .project .links { margin-top: 14px; display: flex; flex-direction: column; gap: 6px; font-weight: 600; font-size: 0.95rem; }
+
+  /* Experience timeline */
+  .timeline { list-style: none; position: relative; padding-left: 28px; }
+  .timeline::before { content: ""; position: absolute; left: 6px; top: 8px; bottom: 8px; width: 2px; background: var(--line); }
+  .timeline > li { position: relative; padding-bottom: 34px; }
+  .timeline > li:last-child { padding-bottom: 0; }
+  .timeline > li::before {
+    content: ""; position: absolute; left: -28px; top: 7px; width: 14px; height: 14px;
+    border-radius: 50%; background: var(--surface); border: 2.5px solid var(--accent);
+  }
+  .timeline h3 { font-size: 1.2rem; }
+  .timeline .meta { color: var(--muted); font-size: 0.95rem; margin: 4px 0 10px; }
+
+  /* Skills */
+  .skills { display: grid; grid-template-columns: repeat(2, 1fr); gap: 28px 40px; }
+  .skills h3 { font-size: 1.05rem; margin-bottom: 10px; }
+
+  /* Contact */
+  .contact { background: var(--ink); color: #dfe6ee; border-radius: var(--radius-l); padding: clamp(28px, 5vw, 52px); }
+  .contact h2 { color: #fff; font-size: clamp(1.8rem, 4vw, 2.4rem); margin-bottom: 14px; }
+  .contact p { color: #c8d3de; }
+  .contact .btn-primary { background: #fff; color: var(--ink); border-color: #fff; }
+  .contact .btn-primary:hover { background: var(--accent-tint); border-color: var(--accent-tint); color: var(--ink); }
+  .contact .btn-plain { color: #fff; border-color: #8ea2b8; }
+  .contact .btn-plain:hover { background: rgba(255,255,255,0.08); color: #fff; }
+  .contact :focus-visible { outline-color: #8fd6d0; }
+
+  footer { padding: 32px 0 48px; color: var(--muted); font-size: 0.9rem; }
+
+  @media (max-width: 760px) {
+    .nav { display: none; }
+    .hero { padding: 56px 0 40px; }
+    section { padding: 48px 0; }
+    .pipeline { grid-template-columns: 1fr; gap: 22px; }
+    .pipeline li { text-align: left; display: grid; grid-template-columns: 130px 1fr; gap: 12px; align-items: center; padding: 0; }
+    .pipeline .what { margin-top: 0; }
+    .pipeline li:not(:last-child)::after { top: 100%; left: 64px; width: 2px; height: 22px; }
+    .pipeline li:not(:last-child)::before { display: none; }
+    .results { grid-template-columns: 1fr; }
+    .project { grid-template-columns: 1fr; gap: 12px; }
+    .skills { grid-template-columns: 1fr; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    .pipeline li::before { animation: none !important; display: none; }
+  }
+</style>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="#top">Himanshi Gaba</a>
+    <nav aria-label="Main">
+      <ul class="nav">
+        <li><a href="#work">Work</a></li>
+        <li><a href="#experience">Experience</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+  <div class="wrap">
+
+    <div class="hero">
+      <span class="status">Available now for graduate and IT Support roles</span>
+      <h1>Himanshi Gaba</h1>
+      <p class="role">IT graduate building cloud systems, supporting the people who use them, and researching how they work for real users.</p>
+      <p>I completed my Bachelor of Information Technology at Deakin University in October 2026. My work spans AWS and IoT, IT support, open-source development and UX research. I'm based in Melbourne and happy to relocate anywhere in Australia.</p>
+      <div class="actions">
+        <a class="btn btn-primary" href="mailto:himanshigaba222@gmail.com">Email me</a>
+        <a class="btn btn-plain" href="resume.pdf" target="_blank" rel="noopener">View resume</a>
+        <a class="btn btn-plain" href="https://github.com/himanshigaba22" target="_blank" rel="noopener">GitHub</a>
+        <a class="btn btn-plain" href="https://www.linkedin.com/in/himanshi-gaba-3b8a74288" target="_blank" rel="noopener">LinkedIn</a>
+      </div>
+    </div>
+
+    <section id="work" aria-labelledby="work-title">
+      <div class="section-head">
+        <h2 id="work-title">Selected work</h2>
+        <p>Projects with code, results or pull requests you can check.</p>
+      </div>
+
+      <article class="feature">
+        <h3>Smart Climate Management System</h3>
+        <p>An event-driven IoT system that monitors temperature, humidity and occupancy across a large building, built to keep working as the number of sensors grows.</p>
+
+        <ol class="pipeline" aria-label="How a sensor reading travels through the system">
+          <li style="--hop: 150px"><span class="node">MQTT</span><span class="what">Simulated sensors publish readings</span></li>
+          <li style="--hop: 150px"><span class="node">AWS IoT Core</span><span class="what">Authenticates devices with X.509 and TLS</span></li>
+          <li style="--hop: 150px"><span class="node">Amazon SQS</span><span class="what">Buffers bursts so nothing is lost</span></li>
+          <li style="--hop: 150px"><span class="node">AWS Lambda</span><span class="what">Validates and processes each message</span></li>
+          <li><span class="node">MongoDB Atlas</span><span class="what">Stores readings for the Node-RED dashboard</span></li>
+        </ol>
+
+        <ul class="results">
+          <li><strong>1,000</strong><span>simulated sensors in load testing</span></li>
+          <li><strong>9,007</strong><span>messages processed after the redesign</span></li>
+          <li><strong>0</strong><span>messages lost with SQS buffering</span></li>
+        </ul>
+
+        <ul class="points">
+          <li>Load-tested at 10, 100 and 1,000 sensors and found the database write bottleneck, then added SQS buffering to fix it.</li>
+          <li>Debugged an AWS IoT authorisation failure using CloudWatch and fixed MongoDB connection overload under Lambda.</li>
+          <li>Moved credentials into environment variables and secured every device with its own certificate.</li>
+        </ul>
+        <a href="https://github.com/himanshigaba22/sit314-smart-climate-management" target="_blank" rel="noopener"><strong>View the code on GitHub</strong></a>
+        <ul class="stack" aria-label="Technologies">
+          <li>Node.js</li><li>MQTT</li><li>AWS IoT Core</li><li>Amazon SQS</li><li>AWS Lambda</li><li>MongoDB Atlas</li><li>Node-RED</li><li>CloudWatch</li>
+        </ul>
+      </article>
+
+      <ul class="projects">
+        <li class="project">
+          <div>
+            <h3>SplashKit open source</h3>
+            <p class="where">Thoth Tech capstone, Deakin University</p>
+            <div class="links">
+              <a href="https://github.com/pulls?q=is%3Apr+author%3Ahimanshigaba22+org%3Athoth-tech" target="_blank" rel="noopener">See my pull requests</a>
+            </div>
+          </div>
+          <div>
+            <p>SplashKit is an open-source library used to teach programming. I write the usage examples that show students how each function works.</p>
+            <ul class="points">
+              <li>Contributed 50+ usage examples in C++, C# and Python, including interactive keyboard-controlled demos for camera, geometry and sprite functions.</li>
+              <li>Fixed duplicate documentation folders that broke page routing, bringing back two guide pages nobody could find.</li>
+              <li>Reviewed other contributors' pull requests for code conventions, missing files and build safety.</li>
+            </ul>
+            <ul class="stack" aria-label="Technologies"><li>C++</li><li>C#</li><li>Python</li><li>Git</li><li>GitHub</li><li>Astro</li></ul>
+          </div>
+        </li>
+
+        <li class="project">
+          <div>
+            <h3>Cloud deployment on AWS and Google Cloud</h3>
+            <p class="where">Deakin University coursework</p>
+          </div>
+          <div>
+            <ul class="points">
+              <li>Deployed web applications on AWS EC2 with Apache, a load balancer and auto-scaling.</li>
+              <li>Containerised a Node.js app with Docker, moved the image between EC2 instances, and deployed workloads to Kubernetes on Google Cloud.</li>
+              <li>Secured an Express app with HTTPS and Helmet security headers, and tested its REST API with Postman.</li>
+            </ul>
+            <ul class="stack" aria-label="Technologies"><li>AWS EC2</li><li>Docker</li><li>Kubernetes</li><li>Google Cloud</li><li>Express</li><li>Postman</li></ul>
+          </div>
+        </li>
+
+        <li class="project">
+          <div>
+            <h3>Rainbow Mission UX research</h3>
+            <p class="where">Deakin University research project</p>
+          </div>
+          <div>
+            <p>A study of a tangible, interactive game that introduces young children to healthy eating.</p>
+            <ul class="points">
+              <li>Ran usability tests with game designers and early childhood educators.</li>
+              <li>Built and managed Qualtrics surveys, supported participant recruitment and prepared ethics documentation.</li>
+              <li>Analysed qualitative feedback to identify usability issues and design improvements.</li>
+            </ul>
+            <ul class="stack" aria-label="Methods"><li>Usability testing</li><li>Qualtrics</li><li>Qualitative analysis</li><li>Research ethics</li></ul>
+          </div>
+        </li>
+
+        <li class="project">
+          <div>
+            <h3>SpendSavers</h3>
+            <p class="where">Deakin University product project</p>
+          </div>
+          <div>
+            <p>A product concept to help people manage the rising cost of living. I developed the business plan, landing page and high-fidelity prototype, and prepared an application to an Australian startup accelerator.</p>
+            <ul class="stack" aria-label="Methods"><li>Figma</li><li>UX design</li><li>Product strategy</li></ul>
+          </div>
+        </li>
+      </ul>
+    </section>
+
+    <section id="experience" aria-labelledby="exp-title">
+      <div class="section-head">
+        <h2 id="exp-title">Experience</h2>
+      </div>
+      <ol class="timeline" reversed>
+        <li>
+          <h3>Research Assistant</h3>
+          <p class="meta">Deakin University, Melbourne. Jul 2026 to Oct 2026</p>
+          <p>Supported the Rainbow Mission project with participant sessions, data collection and feedback analysis. This followed a 160-hour IT industry placement on the same project (Jun to Aug 2026).</p>
+        </li>
+        <li>
+          <h3>Crew Member</h3>
+          <p class="meta">McDonald's, Kew. Apr 2024 to Oct 2026</p>
+          <p>Fast, friendly service in a high-volume restaurant while studying full time. Learned to stay calm under pressure and work closely with a team.</p>
+        </li>
+        <li>
+          <h3>IT Intern (part-time)</h3>
+          <p class="meta">Promatics Technologies, Delhi, India. Feb 2023 to Jan 2024</p>
+          <p>Provided first-line IT support to staff by email, chat and in person, resolving Windows, Outlook, login, printer and Wi-Fi issues, logging requests and escalating complex problems. Also maintained company websites using HTML and Python.</p>
+        </li>
+      </ol>
+    </section>
+
+    <section id="skills" aria-labelledby="skills-title">
+      <div class="section-head">
+        <h2 id="skills-title">Skills</h2>
+      </div>
+      <div class="skills">
+        <div>
+          <h3>Cloud and DevOps</h3>
+          <p>AWS (EC2, Lambda, SQS, IoT Core, S3, IAM, CloudWatch), Docker, Kubernetes, Google Cloud</p>
+        </div>
+        <div>
+          <h3>Languages</h3>
+          <p>Python, JavaScript, Node.js, C#, C++, SQL, HTML and CSS</p>
+        </div>
+        <div>
+          <h3>Backend and data</h3>
+          <p>REST APIs, Express, MongoDB, SQL databases, MQTT, Node-RED</p>
+        </div>
+        <div>
+          <h3>IT support</h3>
+          <p>Windows, Outlook, troubleshooting, logging and escalating requests, printer and Wi-Fi support</p>
+        </div>
+        <div>
+          <h3>UX research</h3>
+          <p>Usability testing, Qualtrics, qualitative analysis, Figma</p>
+        </div>
+        <div>
+          <h3>Tools and practices</h3>
+          <p>Git, GitHub, code review, Postman, load testing, debugging, documentation</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact" aria-labelledby="contact-title">
+      <div class="contact">
+        <h2 id="contact-title">Let's talk</h2>
+        <p>I'm looking for graduate and entry-level roles in IT support, cloud, software development and UX research. Full-time, part-time or contract, in Melbourne or anywhere in Australia.</p>
+        <div class="actions">
+          <a class="btn btn-primary" href="mailto:himanshigaba222@gmail.com">himanshigaba222@gmail.com</a>
+          <a class="btn btn-plain" href="https://www.linkedin.com/in/himanshi-gaba-3b8a74288" target="_blank" rel="noopener">LinkedIn</a>
+          <a class="btn btn-plain" href="resume.pdf" target="_blank" rel="noopener">Resume (PDF)</a>
+        </div>
+      </div>
+    </section>
+
+  </div>
+</main>
+
+<footer>
+  <div class="wrap">© 2026 Himanshi Gaba</div>
+</footer>
+
+</body>
+</html>
